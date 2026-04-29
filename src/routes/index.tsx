@@ -43,6 +43,11 @@ const LEAD = {
   whatsappUrl:
     "https://wa.me/2348054362077?text=Hi%20Goodtimes%20Apartment%2C%20I%27d%20like%20to%20reserve%20a%20stay.",
   location: "Abuja, Nigeria",
+  address: "Plot 1328, Kings Park Estate, Kamar Adeyemi Crescent, Abuja",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=Plot%201328%2C%20Kings%20Park%20Estate%2C%20Kamar%20Adeyemi%20Crescent%2C%20Abuja&output=embed",
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=Plot+1328%2C+Kings+Park+Estate%2C+Kamar+Adeyemi+Crescent%2C+Abuja",
 };
 
 const gallery = [
@@ -211,6 +216,41 @@ function Index() {
                 <p className="mt-1 text-sm text-muted-foreground">{a.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Location / Find Us */}
+      <section className="bg-background py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 md:px-12">
+          <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">Find us</p>
+              <h2 className="mt-2 text-3xl font-bold md:text-5xl">Find us easily at our location</h2>
+              <p className="mt-3 inline-flex items-start gap-2 text-base text-muted-foreground md:text-lg">
+                <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
+                <span>{LEAD.address}</span>
+              </p>
+            </div>
+            <a href={LEAD.directionsUrl} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg">
+                <MapPin className="h-4 w-4" /> Get Directions
+              </Button>
+            </a>
+          </div>
+
+          <div
+            className="mt-10 overflow-hidden rounded-2xl border border-border"
+            style={{ boxShadow: "var(--shadow-elegant)" }}
+          >
+            <iframe
+              title="Goodtimes Apartment location map"
+              src={LEAD.mapsEmbedUrl}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+              className="h-[360px] w-full border-0 md:h-[480px]"
+            />
           </div>
         </div>
       </section>
