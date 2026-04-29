@@ -77,7 +77,7 @@ function Index() {
               <img src={logo} alt="Goodtimes Shortlet Apartment" className="h-9 w-auto md:h-10" />
             </div>
           </div>
-          <a href={LEAD.bookingUrl} target="_blank" rel="noopener noreferrer">
+          <a href={LEAD.whatsappUrl} target="_blank" rel="noopener noreferrer">
             <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg">
               Reserve Now
             </Button>
@@ -115,18 +115,18 @@ function Index() {
               and let Abuja work for you.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <a href={LEAD.bookingUrl} target="_blank" rel="noopener noreferrer">
+              <a href={LEAD.whatsappUrl} target="_blank" rel="noopener noreferrer">
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl">
-                  DM to Reserve <ArrowRight className="ml-1 h-4 w-4" />
+                  Reserve on WhatsApp <ArrowRight className="ml-1 h-4 w-4" />
                 </Button>
               </a>
-              <a href={LEAD.whatsappUrl} target="_blank" rel="noopener noreferrer">
+              <a href={LEAD.phoneTel}>
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white backdrop-blur-md"
                 >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp Us
+                  <Phone className="h-4 w-4" /> Call {LEAD.phoneDisplay}
                 </Button>
               </a>
             </div>
