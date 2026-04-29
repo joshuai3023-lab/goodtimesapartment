@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Wifi, Car, Snowflake, ShieldCheck, Tv, Zap, MapPin, Instagram, MessageCircle, Star, Sparkles, ArrowRight } from "lucide-react";
+import { Wifi, Car, Snowflake, ShieldCheck, Tv, Zap, MapPin, Instagram, MessageCircle, Star, Sparkles, ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
 import exterior from "@/assets/exterior.jpg";
@@ -36,8 +36,12 @@ const LEAD = {
   firstName: "", // e.g. "Tola" — leave blank for the generic brand site
   lifestyle: "business + weekend escape", // tag shown in the hero badge
   igHandle: "goodtimesapartment",
-  bookingUrl: "https://www.instagram.com/goodtimesapartment",
-  whatsappUrl: "https://wa.me/2348000000000", // TODO: replace with real WhatsApp number
+  bookingUrl:
+    "https://www.instagram.com/goodtimesapartment?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+  phoneDisplay: "0805 436 2077",
+  phoneTel: "tel:+2348054362077",
+  whatsappUrl:
+    "https://wa.me/2348054362077?text=Hi%20Goodtimes%20Apartment%2C%20I%27d%20like%20to%20reserve%20a%20stay.",
   location: "Abuja, Nigeria",
 };
 
