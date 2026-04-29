@@ -309,14 +309,22 @@ function Index() {
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} Goodtimes Shortlet Apartment · {LEAD.location}
           </p>
-          <a
-            href={LEAD.bookingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-primary"
-          >
-            <Instagram className="h-4 w-4" /> @{LEAD.igHandle}
-          </a>
+          <div className="flex items-center gap-5 text-sm font-medium">
+            <a
+              href={LEAD.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-foreground hover:text-primary"
+            >
+              <Instagram className="h-4 w-4" /> @{LEAD.igHandle}
+            </a>
+            <a
+              href={LEAD.phoneTel}
+              className="inline-flex items-center gap-2 text-foreground hover:text-primary"
+            >
+              <Phone className="h-4 w-4" /> {LEAD.phoneDisplay}
+            </a>
+          </div>
         </div>
       </footer>
     </div>
