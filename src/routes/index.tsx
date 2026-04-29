@@ -43,6 +43,11 @@ const LEAD = {
   whatsappUrl:
     "https://wa.me/2348054362077?text=Hi%20Goodtimes%20Apartment%2C%20I%27d%20like%20to%20reserve%20a%20stay.",
   location: "Abuja, Nigeria",
+  address: "Plot 1328, Kings Park Estate, Kamar Adeyemi Crescent, Abuja",
+  mapsEmbedUrl:
+    "https://www.google.com/maps?q=Plot%201328%2C%20Kings%20Park%20Estate%2C%20Kamar%20Adeyemi%20Crescent%2C%20Abuja&output=embed",
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=Plot+1328%2C+Kings+Park+Estate%2C+Kamar+Adeyemi+Crescent%2C+Abuja",
 };
 
 const gallery = [
