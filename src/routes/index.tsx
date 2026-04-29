@@ -215,6 +215,48 @@ function Index() {
         </div>
       </section>
 
+      {/* Call to Reserve */}
+      <section className="bg-background py-16 md:py-20">
+        <div className="mx-auto max-w-5xl px-6 md:px-12">
+          <div
+            className="overflow-hidden rounded-2xl border border-border bg-card p-8 md:p-12"
+            style={{ boxShadow: "var(--shadow-elegant)" }}
+          >
+            <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+                  Prefer a quick call?
+                </p>
+                <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+                  Call us to reserve.
+                </h2>
+                <a
+                  href={LEAD.phoneTel}
+                  className="mt-3 inline-flex items-center gap-2 text-2xl font-bold text-primary hover:underline md:text-3xl"
+                >
+                  <Phone className="h-6 w-6" /> {LEAD.phoneDisplay}
+                </a>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Available daily · Abuja, Nigeria
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <a href={LEAD.phoneTel}>
+                  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                    <Phone className="h-4 w-4" /> Call Now
+                  </Button>
+                </a>
+                <a href={LEAD.whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" variant="outline">
+                    <MessageCircle className="h-4 w-4" /> WhatsApp
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="relative overflow-hidden bg-secondary py-24 text-secondary-foreground md:py-32">
         <div
@@ -227,22 +269,31 @@ function Index() {
             {LEAD.firstName ? `${LEAD.firstName}, ` : ""}your dates are filling up fast.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base text-white/80 md:text-lg">
-            Slide into our DMs and we'll lock in your reservation in minutes. No long forms.
-            No phone tag. Just goodtimes.
+            Slide into our DMs, send a WhatsApp, or just call us — we'll lock in your
+            reservation in minutes. No long forms. Just goodtimes.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <a href={LEAD.bookingUrl} target="_blank" rel="noopener noreferrer">
+            <a href={LEAD.whatsappUrl} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl">
-                <Instagram className="h-4 w-4" /> DM @{LEAD.igHandle}
+                <MessageCircle className="h-4 w-4" /> Message on WhatsApp
               </Button>
             </a>
-            <a href={LEAD.whatsappUrl} target="_blank" rel="noopener noreferrer">
+            <a href={LEAD.bookingUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white"
               >
-                <MessageCircle className="h-4 w-4" /> Message on WhatsApp
+                <Instagram className="h-4 w-4" /> DM @{LEAD.igHandle}
+              </Button>
+            </a>
+            <a href={LEAD.phoneTel}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white"
+              >
+                <Phone className="h-4 w-4" /> {LEAD.phoneDisplay}
               </Button>
             </a>
           </div>
