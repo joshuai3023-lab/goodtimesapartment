@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Wifi, Car, Snowflake, ShieldCheck, Tv, Zap, MapPin, Instagram, MessageCircle, Star, Sparkles, ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.jpg";
@@ -71,6 +71,25 @@ const amenities = [
 function Index() {
   const [active, setActive] = useState(0);
   const greetingName = LEAD.firstName ? LEAD.firstName : "there";
+
+  // Load Instagram embed script and re-process embeds on mount
+  useEffect(() => {
+    const SRC = "https://www.instagram.com/embed.js";
+    const process = () => {
+      const w = window as unknown as { instgrm?: { Embeds?: { process: () => void } } };
+      w.instgrm?.Embeds?.process();
+    };
+    const existing = document.querySelector<HTMLScriptElement>(`script[src="${SRC}"]`);
+    if (existing) {
+      process();
+    } else {
+      const s = document.createElement("script");
+      s.src = SRC;
+      s.async = true;
+      s.onload = process;
+      document.body.appendChild(s);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -194,6 +213,52 @@ function Index() {
                 <img src={g.src} alt={g.alt} className="aspect-square w-full object-cover" />
               </button>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Instagram Reel */}
+      <section className="bg-background py-20 md:py-28">
+        <div className="mx-auto max-w-5xl px-6 md:px-12">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">See it in action</p>
+            <h2 className="mt-2 text-3xl font-bold md:text-5xl">A peek inside Goodtimes</h2>
+            <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+              Watch the latest reel — straight from our Instagram.
+            </p>
+          </div>
+          <div className="mt-10 flex justify-center">
+            <blockquote
+              className="instagram-media w-full max-w-[540px]"
+              data-instgrm-captioned
+              data-instgrm-permalink="https://www.instagram.com/reel/DNkWscDtCW6/?utm_source=ig_embed&amp;utm_campaign=loading"
+              data-instgrm-version="14"
+              style={{
+                background: "#FFF",
+                border: 0,
+                borderRadius: 12,
+                boxShadow: "var(--shadow-elegant)",
+                margin: 0,
+                padding: 0,
+                minWidth: 326,
+              }}
+            >
+              <a
+                href="https://www.instagram.com/reel/DNkWscDtCW6/?utm_source=ig_embed&amp;utm_campaign=loading"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-6 text-center text-sm text-primary"
+              >
+                View this reel on Instagram
+              </a>
+            </blockquote>
+          </div>
+          <div className="mt-8 text-center">
+            <a href={LEAD.bookingUrl} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="outline">
+                <Instagram className="h-4 w-4" /> Follow @{LEAD.igHandle}
+              </Button>
+            </a>
           </div>
         </div>
       </section>
